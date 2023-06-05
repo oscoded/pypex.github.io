@@ -4,19 +4,34 @@
 
 <h1>Date Fingerprint</h1>
 
-<h2>localtime</h2>
+<h2>Local Time:</h2>
 <p id="localtime"></p>
-
 
 <h2>User Agent:</h2>
 <p id="useragent"></p>
 
+<h2>HTTP Headers:</h2>
+<pre id="headers"></pre>
 
 <script>
+    // Function to format headers as a string
+    function formatHeaders(headers) {
+        let formattedHeaders = '';
+        for (let [name, value] of headers.entries()) {
+            formattedHeaders += `${name}: ${value}\n`;
+        }
+        return formattedHeaders;
+    }
 
-now = new Date();
-document.getElementById("localtime").innerHTML = now.toString();
-document.getElementById("useragent").innerHTML = navigator.userAgent;
+    // Get the headers from the navigator object
+    const headers = new Map(Object.entries(navigator.headers || {}));
+    const formattedHeaders = formatHeaders(headers);
+
+    // Display the local time, user agent, and headers in the HTML
+    now = new Date();
+    document.getElementById("localtime").innerHTML = now.toString();
+    document.getElementById("useragent").innerHTML = navigator.userAgent;
+    document.getElementById("headers").innerHTML = formattedHeaders;
 </script>
 
 </body>
