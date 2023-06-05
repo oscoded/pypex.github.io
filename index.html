@@ -7,13 +7,16 @@
 <p>localtime</p>
 <p id="localtime"></p>
 
+
+<p>User Agent:</p>
+<p id="useragent"></p>
+
+
 <script>
 
 now = new Date();
-localtime = now.toString();
-utctime = now.toGMTString();
-
-document.getElementById("localtime").innerHTML = localtime;
+document.getElementById("localtime").innerHTML = now.toString();
+document.getElementById("useragent").innerHTML = navigator.userAgent;
 </script>
 
 </body>
