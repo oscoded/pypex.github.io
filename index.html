@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Date Fingerprint</h1>
+
+<p>localtime</p>
+<p id="localtime"></p>
+
+<script>
+
+now = new Date();
+localtime = now.toString();
+utctime = now.toGMTString();
+
+document.getElementById("localtime").innerHTML = localtime;
+</script>
+
+</body>
+</html>
